@@ -40,6 +40,16 @@ const commands = [
         .setDescription("O co chcesz zapytać?")
         .setRequired(true)
         .setMaxLength(1000)
+    ),
+  new SlashCommandBuilder()
+    .setName("zarzadzaj")
+    .setDescription("Poproś BananaAI o utworzenie rang lub kanałów")
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
+    .addStringOption(option =>
+      option.setName("polecenie")
+        .setDescription("Np. utwórz kategorię Sklep i kanał oferta")
+        .setRequired(true)
+        .setMaxLength(700)
     )
 ].map(command => command.toJSON());
 
@@ -153,6 +163,73 @@ async function setupServer(interaction) {
   }
 }
 
+async function manageWithAI(interaction) {
+  if (!interaction.inGuild() || !interaction.memberPermissions?.has(PermissionFlagsBits.ManageGuild)) {
+    return interaction.reply({ content: "Ta komenda jest tylko dla osób z uprawnieniem Zarządzanie serwerem.", ephemeral: true });
+  }
+  if (!ai) {
+    return interaction.reply({ content: "BananaAI potrzebuje OPENAI_API_KEY w prywatnych zmiennych środowiskowych hostingu. Nie wklejaj klucza na Discordzie ani GitHubie.", ephemeral: true });
+  }
+
+  await interaction.deferReply({ ephemeral: true });
+  const instruction = interaction.options.getString("polecenie", true);
+  try {
+    const result = await ai.chat.completions.create({
+      model: "gpt-4.1-mini",
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content: 'Jesteś planerem konfiguracji Discorda. Zwróć wyłącznie JSON w formacie {"actions":[...]}. Dozwolone akcje: {"type":"create_category","name":"..."}; {"type":"create_text_channel","name":"...","category":"..."}; {"type":"create_role","name":"...","color":"#RRGGBB"}. Maksymalnie 6 akcji. Nazwy krótkie, bez @everyone/@here. Nie twórz ról o nazwach sugerujących właściciela lub administratora, chyba że polecenie pochodzi od administratora (zawsze pochodzi). Nie twórz żadnych uprawnień dla ról. Nie usuwaj ani nie zmieniaj istniejących elementów. Jeśli prośba jest niejasna lub wykracza poza zakres, zwróć {"actions":[],"message":"krótkie wyjaśnienie"}.'
+        },
+        { role: "user", content: instruction }
+      ],
+      max_tokens: 500
+    });
+    const raw = result.choices[0]?.message?.content || '{"actions":[]}';
+    const plan = JSON.parse(raw);
+    const actions = Array.isArray(plan.actions) ? plan.actions.slice(0, 6) : [];
+    const guild = interaction.guild;
+    const outcomes = [];
+
+    for (const action of actions) {
+      if (action.type === "create_category" && typeof action.name === "string") {
+        const name = action.name.trim().slice(0, 90);
+        if (!name) continue;
+        let channel = guild.channels.cache.find(c => c.type === ChannelType.GuildCategory && c.name === name);
+        if (!channel) channel = await guild.channels.create({ name, type: ChannelType.GuildCategory, reason: "Polecenie BananaAI od administratora" });
+        outcomes.push("📁 Kategoria: " + name);
+      } else if (action.type === "create_text_channel" && typeof action.name === "string") {
+        const name = action.name.trim().toLowerCase().replace(/[^a-z0-9ąćęłńóśźż_-]/g, "-").slice(0, 90);
+        if (!name) continue;
+        const categoryName = typeof action.category === "string" ? action.category.trim().slice(0, 90) : "";
+        let parent = categoryName ? guild.channels.cache.find(c => c.type === ChannelType.GuildCategory && c.name === categoryName) : null;
+        if (!parent && categoryName) {
+          parent = await guild.channels.create({ name: categoryName, type: ChannelType.GuildCategory, reason: "Polecenie BananaAI od administratora" });
+        }
+        let channel = guild.channels.cache.find(c => c.type === ChannelType.GuildText && c.name === name && c.parentId === (parent?.id || null));
+        if (!channel) await guild.channels.create({ name, type: ChannelType.GuildText, ...(parent ? { parent: parent.id } : {}), reason: "Polecenie BananaAI od administratora" });
+        outcomes.push("💬 Kanał: #" + name);
+      } else if (action.type === "create_role" && typeof action.name === "string") {
+        const name = action.name.trim().slice(0, 90);
+        if (!name || name === "@everyone") continue;
+        let role = guild.roles.cache.find(r => r.name === name);
+        if (!role) {
+          const color = /^#[0-9A-Fa-f]{6}$/.test(action.color || "") ? action.color : "#F1C40F";
+          role = await guild.roles.create({ name, color, reason: "Polecenie BananaAI od administratora" });
+        }
+        outcomes.push("🏷️ Ranga: " + name);
+      }
+    }
+
+    const message = outcomes.length ? "🍌 Wykonałem polecenie:\n" + outcomes.join("\n") : (plan.message || "Nie znalazłem bezpiecznych działań do wykonania. Spróbuj opisać dokładniej, co mam utworzyć.");
+    await interaction.editReply(message);
+  } catch (error) {
+    console.error("Błąd /zarzadzaj:", error);
+    await interaction.editReply("Nie udało się wykonać polecenia. Sprawdź uprawnienia Zarządzanie kanałami i Zarządzanie rolami oraz ustawienie OPENAI_API_KEY.");
+  }
+}
+
 async function answerWithAI(interaction) {
   const question = interaction.options.getString("pytanie", true);
 
@@ -201,6 +278,10 @@ client.on("interactionCreate", async interaction => {
 
   if (interaction.commandName === "ai") {
     return answerWithAI(interaction);
+  }
+
+  if (interaction.commandName === "zarzadzaj") {
+    return manageWithAI(interaction);
   }
 });
 
