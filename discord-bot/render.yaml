@@ -1,0 +1,21 @@
+services:
+  - type: worker
+    name: bananshop-discord-bot
+    runtime: node
+    plan: starter
+    rootDir: discord-bot
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: CLIENT_ID
+        sync: false
+      - key: GUILD_ID
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: STAFF_ROLE_ID
+        sync: false
