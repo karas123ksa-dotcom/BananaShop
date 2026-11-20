@@ -1,12 +1,226 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BananaShop 🍌</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BananaShop 🍌</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #101010;
+    color: white;
+}
+
+header {
+    height: 85px;
+    padding: 12px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #171717;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 25px;
+    font-weight: 900;
+    color: #ffca05;
+}
+
+.logo img {
+    width: 65px;
+    height: 55px;
+    object-fit: contain;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffca05;
+}
+
+.hero {
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 10%;
+    background: radial-gradient(circle at 80% 50%, #493600, #101010 65%);
+    gap: 35px;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #ffca05;
+}
+
+.hero p {
+    color: #bbb;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 30px;
+    background: #ffca05;
+    color: #171717;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 900;
+    transition: .2s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    background: #ffe16a;
+}
+
+.hero img {
+    width: min(42%, 440px);
+    object-fit: contain;
+    filter: drop-shadow(0 0 35px #ffca0560);
+}
+
+.section {
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.section h2 span {
+    color: #ffca05;
+}
+
+.section p {
+    color: #aaa;
+    line-height: 1.7;
+}
+
+.offer {
+    max-width: 700px;
+    margin: 35px auto 0;
+    padding: 35px;
+    background: #1b1b1b;
+    border: 1px solid #383838;
+    border-radius: 18px;
+}
+
+.offer h3 {
+    color: #ffca05;
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #171717;
+    color: #888;
+    border-top: 1px solid #333;
+}
+
+@media(max-width: 700px) {
+    header {
+        padding: 12px 5%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 13px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 65px 7%;
+    }
+
+    .hero img {
+        width: 85%;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>🍌 BananaShop</h1>
-    <p>Witamy w BananaShop!</p>
+
+<header>
+    <div class="logo">
+        <img src="Neonowy%20bananowy%20szyld%20BananaShop.png" alt="BananaShop logo">
+        BananaShop
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <h1>Witaj w <span>BananaShop!</span></h1>
+
+        <p>
+            Odkryj nasz sklep i poznaj świat BananaShop.
+            Sprawdź, co dla Ciebie przygotowaliśmy!
+        </p>
+
+        <a href="#oferta" class="btn">ZOBACZ OFERTĘ 🍌</a>
+    </div>
+
+    <img src="Neonowy%20bananowy%20szyld%20BananaShop.png"
+         alt="Logo BananaShop">
+</section>
+
+<section class="section" id="oferta">
+    <h2>Nasza <span>oferta</span></h2>
+    <p>Już niedługo znajdziesz tutaj nasze produkty!</p>
+
+    <div class="offer">
+        <h3>🍌 BananaShop</h3>
+        <p>Pracujemy nad przygotowaniem naszej oferty.</p>
+    </div>
+</section>
+
+<section class="section" id="kontakt">
+    <h2>Masz <span>pytania?</span></h2>
+    <p>Skontaktuj się z nami – szczegóły kontaktu pojawią się tutaj.</p>
+</section>
+
+<footer>
+    © 2026 BananaShop. Wszystkie prawa zastrzeżone. 🍌
+</footer>
+
 </body>
 </html>
