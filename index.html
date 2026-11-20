@@ -1,225 +1,180 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BananaShop 🍌</title>
-
+<title>BananaShop — coś dobrego nadchodzi</title>
+<meta name="description" content="BananaShop — nasz mały internetowy projekt. Dołącz do naszej społeczności Discord!">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--yellow:#f5d329;--dark:#10100e;--muted:#a5a397}
+html{scroll-behavior:smooth}
+body{
+ background:var(--dark);
+ color:#f5f2e9;
+ font-family:Arial,Helvetica,sans-serif;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    background: #101010;
-    color: white;
+a{color:inherit;text-decoration:none}
+header{
+ height:82px;padding:0 8%;
+ display:flex;align-items:center;justify-content:space-between;
+ border-bottom:1px solid #ffffff15;
 }
-
-header {
-    height: 85px;
-    padding: 12px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #171717;
-    border-bottom: 1px solid #333;
+.brand{font-size:23px;font-weight:900;letter-spacing:-1px}
+.brand span{color:var(--yellow)}
+nav{display:flex;gap:30px;font-size:13px;color:#c9c7bc}
+nav a:hover{color:var(--yellow)}
+.hero{
+ min-height:610px;padding:85px 8%;
+ display:grid;grid-template-columns:1.15fr .85fr;
+ align-items:center;gap:40px;
+ background:radial-gradient(ellipse at 85% 50%,#594b1025,transparent 55%);
 }
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 25px;
-    font-weight: 900;
-    color: #ffca05;
+.tag{
+ display:inline-block;border:1px solid #f5d32965;
+ color:var(--yellow);padding:9px 13px;
+ font-size:11px;letter-spacing:2px;text-transform:uppercase;
+ margin-bottom:28px;
 }
-
-.logo img {
-    width: 65px;
-    height: 55px;
-    object-fit: contain;
+h1{
+ font-size:clamp(48px,7vw,88px);
+ line-height:.96;letter-spacing:-5px;
+ max-width:650px;
 }
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: bold;
+h1 span{color:var(--yellow)}
+.hero p{
+ color:var(--muted);font-size:16px;line-height:1.8;
+ max-width:440px;margin:25px 0 30px;
 }
-
-nav a:hover {
-    color: #ffca05;
+.btn{
+ display:inline-flex;align-items:center;gap:12px;
+ background:var(--yellow);color:#17160e;
+ padding:16px 23px;font-weight:800;font-size:13px;
+ transition:.2s;
 }
-
-.hero {
-    min-height: 580px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 70px 10%;
-    background: radial-gradient(circle at 80% 50%, #493600, #101010 65%);
-    gap: 35px;
+.btn:hover{background:#fff06b;transform:translateY(-3px)}
+.visual{
+ min-height:370px;display:flex;align-items:center;
+ justify-content:center;position:relative;
 }
-
-.hero-text {
-    max-width: 550px;
+.visual img{
+ width:100%;max-width:430px;height:auto;
+ object-fit:contain;position:relative;z-index:2;
+ filter:drop-shadow(0 25px 45px #0009);
 }
-
-.hero h1 {
-    font-size: clamp(42px, 6vw, 70px);
-    margin-bottom: 20px;
+.visual:before{
+ content:"";position:absolute;width:300px;height:300px;
+ border:1px solid #f5d32945;border-radius:50%;
 }
-
-.hero h1 span {
-    color: #ffca05;
+.visual:after{
+ content:"BANANA";position:absolute;
+ font-size:75px;font-weight:900;color:#ffffff08;
+ transform:rotate(-15deg);
 }
-
-.hero p {
-    color: #bbb;
-    font-size: 18px;
-    line-height: 1.7;
+.line{
+ height:1px;background:#ffffff20;margin:0 8%;
 }
-
-.btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 16px 30px;
-    background: #ffca05;
-    color: #171717;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 900;
-    transition: .2s;
+.info{
+ padding:90px 8%;display:grid;
+ grid-template-columns:1fr 1fr;gap:70px;
 }
-
-.btn:hover {
-    transform: translateY(-4px);
-    background: #ffe16a;
+.small-title{
+ color:var(--yellow);font-size:11px;
+ letter-spacing:3px;text-transform:uppercase;
+ margin-bottom:18px;
 }
-
-.hero img {
-    width: min(42%, 440px);
-    object-fit: contain;
-    filter: drop-shadow(0 0 35px #ffca0560);
+.info h2{font-size:36px;letter-spacing:-1.5px;line-height:1.1}
+.info p{color:var(--muted);line-height:1.9;font-size:14px}
+.community{
+ margin:20px 8% 90px;padding:48px;
+ border:1px solid #ffffff20;
+ display:flex;align-items:center;justify-content:space-between;gap:30px;
+ background:#171713;
 }
-
-.section {
-    padding: 75px 8%;
-    text-align: center;
+.community h2{font-size:30px;letter-spacing:-1px}
+.community p{color:var(--muted);font-size:13px;margin-top:10px}
+footer{
+ padding:28px 8%;border-top:1px solid #ffffff18;
+ display:flex;justify-content:space-between;gap:20px;
+ color:#77766e;font-size:12px;
 }
-
-.section h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-}
-
-.section h2 span {
-    color: #ffca05;
-}
-
-.section p {
-    color: #aaa;
-    line-height: 1.7;
-}
-
-.offer {
-    max-width: 700px;
-    margin: 35px auto 0;
-    padding: 35px;
-    background: #1b1b1b;
-    border: 1px solid #383838;
-    border-radius: 18px;
-}
-
-.offer h3 {
-    color: #ffca05;
-    margin-bottom: 12px;
-    font-size: 24px;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #171717;
-    color: #888;
-    border-top: 1px solid #333;
-}
-
-@media(max-width: 700px) {
-    header {
-        padding: 12px 5%;
-    }
-
-    nav a {
-        margin-left: 10px;
-        font-size: 13px;
-    }
-
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 65px 7%;
-    }
-
-    .hero img {
-        width: 85%;
-    }
+footer strong{color:#e7e3d5}
+@media(max-width:750px){
+ header{padding:0 6%;height:70px}
+ nav{gap:13px;font-size:11px}
+ .hero{grid-template-columns:1fr;padding:70px 7%;gap:10px}
+ h1{letter-spacing:-3px}
+ .visual{min-height:280px}
+ .visual img{max-width:310px}
+ .info{grid-template-columns:1fr;gap:25px;padding:65px 7%}
+ .community{margin:10px 7% 60px;padding:28px;flex-direction:column;align-items:flex-start}
+ footer{padding:25px 7%;flex-direction:column}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-    <div class="logo">
-        <img src="Neonowy%20bananowy%20szyld%20BananaShop.png" alt="BananaShop logo">
-        BananaShop
-    </div>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#oferta">Oferta</a>
-        <a href="#kontakt">Kontakt</a>
-    </nav>
+ <a class="brand" href="#">BANANA<span>SHOP.</span></a>
+ <nav>
+  <a href="#start">Start</a>
+  <a href="#about">O nas</a>
+  <a href="#discord">Discord</a>
+ </nav>
 </header>
 
-<section class="hero" id="home">
-    <div class="hero-text">
-        <h1>Witaj w <span>BananaShop!</span></h1>
-
-        <p>
-            Odkryj nasz sklep i poznaj świat BananaShop.
-            Sprawdź, co dla Ciebie przygotowaliśmy!
-        </p>
-
-        <a href="#oferta" class="btn">ZOBACZ OFERTĘ 🍌</a>
-    </div>
-
-    <img src="Neonowy%20bananowy%20szyld%20BananaShop.png"
-         alt="Logo BananaShop">
+<main>
+<section class="hero" id="start">
+ <div>
+  <div class="tag">● Nowy projekt · 2026</div>
+  <h1>Nie jesteśmy<br>kolejnym <span>sklepem.</span></h1>
+  <p>
+   BananaShop dopiero nabiera kształtów.
+   Pracujemy nad czymś własnym i chcemy,
+   żebyś był częścią tego od samego początku.
+  </p>
+  <a class="btn" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener">
+   DOŁĄCZ DO DISCORDA ↗
+  </a>
+ </div>
+ <div class="visual">
+  <img src="Neonowy%20bananowy%20szyld%20BananaShop.png" alt="Logo BananaShop">
+ </div>
 </section>
 
-<section class="section" id="oferta">
-    <h2>Nasza <span>oferta</span></h2>
-    <p>Już niedługo znajdziesz tutaj nasze produkty!</p>
+<div class="line"></div>
 
-    <div class="offer">
-        <h3>🍌 BananaShop</h3>
-        <p>Pracujemy nad przygotowaniem naszej oferty.</p>
-    </div>
+<section class="info" id="about">
+ <div>
+  <div class="small-title">01 / Kim jesteśmy</div>
+  <h2>Mały projekt.<br>Duże plany.</h2>
+ </div>
+ <div>
+  <p>
+   BananaShop to projekt, który właśnie rozwijamy.
+   Nie chcemy obiecywać rzeczy, których jeszcze nie ma.
+   Zamiast tego wolimy tworzyć wszystko krok po kroku
+   i pokazywać efekty naszej pracy.
+  </p>
+ </div>
 </section>
 
-<section class="section" id="kontakt">
-    <h2>Masz <span>pytania?</span></h2>
-    <p>Skontaktuj się z nami – szczegóły kontaktu pojawią się tutaj.</p>
+<section class="community" id="discord">
+ <div>
+  <div class="small-title">02 / Społeczność</div>
+  <h2>Widzimy się na Discordzie.</h2>
+  <p>Dołącz, poznaj projekt i bądź na bieżąco.</p>
+ </div>
+ <a class="btn" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener">
+  WEJDŹ NA SERWER ↗
+ </a>
 </section>
+</main>
 
 <footer>
-    © 2026 BananaShop. Wszystkie prawa zastrzeżone. 🍌
+ <strong>BANANASHOP.</strong>
+ <span>© 2026 BananaShop · Wszystkie prawa zastrzeżone</span>
+ <span>Made with a little banana 🍌</span>
 </footer>
 
 </body>
