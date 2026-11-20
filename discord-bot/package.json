@@ -1,0 +1,17 @@
+{
+  "name": "bananshop-discord-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BananShop Discord bot: setup, welcome, private tickets, anti-spam and optional OpenAI assistant",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "discord.js": "^14.19.3",
+    "openai": "^5.8.2"
+  }
+}
