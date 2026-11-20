@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karas123ksa-dotcom.github.io/BananaShop/sitemap.xml
