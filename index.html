@@ -110,6 +110,16 @@ footer strong{color:#e7e3d5}
  .community{margin:10px 7% 60px;padding:28px;flex-direction:column;align-items:flex-start}
  footer{padding:25px 7%;flex-direction:column}
 }
+
+.owners{padding:0 8% 85px}
+.owners-heading{margin-bottom:25px}
+.owners-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.owner-card{padding:25px 27px;border:1px solid #ffffff20;background:linear-gradient(135deg,#1c1c17,#141411);position:relative;overflow:hidden}
+.owner-card:after{content:"";position:absolute;width:130px;height:130px;border:1px solid #f5d32925;border-radius:50%;right:-45px;top:-55px}
+.owner-role{display:block;color:var(--yellow);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px}
+.owner-name{font-size:clamp(19px,3vw,25px);font-weight:800;letter-spacing:-.5px;overflow-wrap:anywhere}
+@media(max-width:750px){.owners{padding:0 7% 60px}.owners-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -119,6 +129,7 @@ footer strong{color:#e7e3d5}
  <nav>
   <a href="#start">Start</a>
   <a href="#about">O nas</a>
+  <a href="#owners">Ekipa</a>
   <a href="#discord">Discord</a>
  </nav>
 </header>
@@ -156,6 +167,24 @@ footer strong{color:#e7e3d5}
    Zamiast tego wolimy tworzyć wszystko krok po kroku
    i pokazywać efekty naszej pracy.
   </p>
+ </div>
+</section>
+
+
+<section class="owners" id="owners">
+ <div class="owners-heading">
+  <div class="small-title">03 / Ekipa</div>
+  <h2>Za projektem stoją ludzie.</h2>
+ </div>
+ <div class="owners-grid">
+  <div class="owner-card">
+   <span class="owner-role">Właściciel</span>
+   <div class="owner-name">xZenquu</div>
+  </div>
+  <div class="owner-card">
+   <span class="owner-role">Właściciel</span>
+   <div class="owner-name">†𝐎𝐝𝐝𝐚𝐥𝐨𝐌𝐢𝐞𝐜𝐳†</div>
+  </div>
  </div>
 </section>
 
