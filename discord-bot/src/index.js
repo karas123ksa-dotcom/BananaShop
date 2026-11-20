@@ -125,7 +125,17 @@ async function ensureText(guild, name, parent, options = {}) {
             PermissionsBitField.Flags.ReadMessageHistory,
             PermissionsBitField.Flags.ManageChannels
           ]
-        }
+        },
+        ...(STAFF_ROLE_ID && guild.roles.cache.has(STAFF_ROLE_ID)
+          ? [{
+              id: STAFF_ROLE_ID,
+              allow: [
+                PermissionsBitField.Flags.ViewChannel,
+                PermissionsBitField.Flags.SendMessages,
+                PermissionsBitField.Flags.ReadMessageHistory
+              ]
+            }]
+          : [])
       ]
     : [];
 
