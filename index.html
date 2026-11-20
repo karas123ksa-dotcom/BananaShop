@@ -57,10 +57,37 @@ h1 span{color:var(--yellow)}
  min-height:370px;display:flex;align-items:center;
  justify-content:center;position:relative;
 }
-.visual img{
- width:100%;max-width:430px;height:auto;
- object-fit:contain;position:relative;z-index:2;
- filter:drop-shadow(0 25px 45px #0009);
+.banana-wrap{
+ position:relative;z-index:2;
+ width:280px;height:280px;
+ display:grid;place-items:center;
+ animation:banana-float 3.2s ease-in-out infinite;
+}
+.banana{
+ display:block;font-size:clamp(150px,22vw,220px);
+ line-height:1;
+ filter:drop-shadow(0 22px 25px #0009);
+ transform-origin:50% 75%;
+ animation:banana-wiggle 5s ease-in-out infinite;
+ user-select:none;
+}
+.banana-glow{
+ position:absolute;width:190px;height:190px;border-radius:50%;
+ background:#f5d32920;filter:blur(35px);z-index:-1;
+}
+@keyframes banana-float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-17px)}
+}
+@keyframes banana-wiggle{
+ 0%,82%,100%{transform:rotate(0deg)}
+ 86%{transform:rotate(-9deg)}
+ 90%{transform:rotate(8deg)}
+ 94%{transform:rotate(-5deg)}
+ 98%{transform:rotate(2deg)}
+}
+@media(prefers-reduced-motion:reduce){
+ .banana-wrap,.banana{animation:none}
 }
 .visual:before{
  content:"";position:absolute;width:300px;height:300px;
@@ -105,7 +132,7 @@ footer strong{color:#e7e3d5}
  .hero{grid-template-columns:1fr;padding:70px 7%;gap:10px}
  h1{letter-spacing:-3px}
  .visual{min-height:280px}
- .visual img{max-width:310px}
+ .banana-wrap{width:230px;height:230px}.banana{font-size:175px}
  .info{grid-template-columns:1fr;gap:25px;padding:65px 7%}
  .community{margin:10px 7% 60px;padding:28px;flex-direction:column;align-items:flex-start}
  footer{padding:25px 7%;flex-direction:column}
@@ -148,8 +175,11 @@ footer strong{color:#e7e3d5}
    DOŁĄCZ DO DISCORDA ↗
   </a>
  </div>
- <div class="visual">
-  <img src="Neonowy%20bananowy%20szyld%20BananaShop.png" alt="Logo BananaShop">
+ <div class="visual" aria-label="Animowany banan BananaShop">
+  <div class="banana-wrap">
+   <div class="banana-glow"></div>
+   <span class="banana" role="img" aria-label="Banan">🍌</span>
+  </div>
  </div>
 </section>
 
