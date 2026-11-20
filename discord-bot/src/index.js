@@ -171,7 +171,12 @@ async function publishTicketPanel(guild) {
     item => item.type === ChannelType.GuildText && item.name === TICKET_PANEL_CHANNEL
   );
   if (!channel) throw new Error("Nie znaleziono kanału panelu ticketów. Użyj najpierw /setup.");
-  await channel.send(ticketPanelPayload());
+  const recent = await channel.messages.fetch({ limit: 30 }).catch(() => null);
+  const alreadyPosted = recent?.some(message =>
+    message.author.id === client.user.id &&
+    message.embeds.some(embed => embed.title === "🍌 Centrum pomocy BananShop")
+  );
+  if (!alreadyPosted) await channel.send(ticketPanelPayload());
   return channel;
 }
 
@@ -193,7 +198,23 @@ async function setupGuild(guild) {
   await ensureText(guild, "🖼️・media", community);
   await ensureText(guild, "🤖・bot-komendy", community);
 
+  const ticketCategory = await ensureCategory(guild, TICKET_CATEGORY, true);
+  if (STAFF_ROLE_ID && guild.roles.cache.has(STAFF_ROLE_ID)) {
+    await ticketCategory.permissionOverwrites.edit(STAFF_ROLE_ID, {
+      ViewChannel: true,
+      SendMessages: true,
+      ReadMessageHistory: true
+    }).catch(() => {});
+  }
+
   const staff = await ensureCategory(guild, "🔒・EKIPA", true);
+  if (STAFF_ROLE_ID && guild.roles.cache.has(STAFF_ROLE_ID)) {
+    await staff.permissionOverwrites.edit(STAFF_ROLE_ID, {
+      ViewChannel: true,
+      SendMessages: true,
+      ReadMessageHistory: true
+    }).catch(() => {});
+  }
   await ensureText(guild, "📋・logi", staff, { private: true });
   await ensureText(guild, "🔐・staff-chat", staff, { private: true });
   await ensureText(guild, "🚨・zgłoszenia", staff, { private: true });
