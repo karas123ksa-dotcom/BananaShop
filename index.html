@@ -7,21 +7,21 @@
 <meta name="color-scheme" content="dark">
 <meta name="author" content="BananaShop">
 <meta name="application-name" content="BananaShop">
-<meta name="description" content="BananaShop — poznaj ofertę, sprawdź nowości i skontaktuj się z ekipą. Oficjalna strona sklepu i społeczności BananaShop.">
+<meta name="description" content="BananaShop — przejrzysty cennik CraftCube, aktualności, promocje i szybki kontakt z ekipą. Sprawdź ofertę i zapytaj na Discordzie.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://karas123ksa-dotcom.github.io/BananaShop/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:site_name" content="BananaShop">
-<meta property="og:title" content="BananaShop — sklep i społeczność">
-<meta property="og:description" content="Poznaj BananaShop, sprawdź ofertę i skontaktuj się z naszą ekipą na Discordzie.">
+<meta property="og:title" content="BananaShop — oferta, cennik CraftCube i społeczność">
+<meta property="og:description" content="Sprawdź cennik CraftCube, promocje i skontaktuj się z ekipą BananaShop.">
 <meta property="og:url" content="https://karas123ksa-dotcom.github.io/BananaShop/">
 <meta property="og:image" content="https://karas123ksa-dotcom.github.io/BananaShop/Neonowy%20bananowy%20szyld%20BananaShop.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BananaShop — oficjalna strona">
 <meta name="twitter:description" content="Poznaj BananaShop i dołącz do naszej społeczności.">
 <meta name="twitter:image" content="https://karas123ksa-dotcom.github.io/BananaShop/Neonowy%20bananowy%20szyld%20BananaShop.png">
-<title>BananaShop 🍌 — Oficjalny sklep i społeczność</title>
+<title>BananaShop 🍌 | Cennik CraftCube, promocje i kontakt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -41,6 +41,17 @@ header{position:sticky;top:0;z-index:50;background:#090d08d9;backdrop-filter:blu
 @media(max-width:560px){.wrap{width:calc(100% - 34px)}.nav{height:68px}.links{top:68px}.brand{font-size:18px}.hero{padding:48px 0 42px}.lead{font-size:13px}.visual{height:320px}.banana{width:215px;height:245px;border-radius:32px}.banana span{font-size:120px}.halo{width:290px}.orbitlabel{bottom:7px}.tickerline{justify-content:flex-start;gap:28px}.section{padding:68px 0}.products,.team{grid-template-columns:1fr}.product{min-height:220px}.featurebox{padding:24px}.cta{padding:26px}.foot{align-items:flex-start;flex-direction:column}.floating-discord{right:15px;bottom:15px;width:47px;height:47px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 
+.premium-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 auto;padding:22px 0 8px}
+.premium-chip{display:flex;align-items:center;gap:12px;padding:16px 18px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#151d12,#0c110a)}
+.premium-chip .chip-icon{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border-radius:11px;background:#c9f36b16;color:var(--lime);font-size:17px}
+.premium-chip strong{display:block;font:700 12px "Space Grotesk";margin-bottom:4px}
+.premium-chip small{display:block;color:var(--muted);font-size:9px;line-height:1.5}
+.price-value{display:block;margin-top:14px;color:var(--lime);font:700 28px "Space Grotesk";letter-spacing:-1px}
+.price-note{display:block;margin-top:6px;color:#839078;font-size:9px;line-height:1.6}
+.package-link{display:inline-flex;margin-top:16px;padding:10px 12px;border:1px solid #c9f36b55;border-radius:10px;color:var(--lime);font-size:9px;font-weight:950;letter-spacing:.7px;transition:.2s}
+.package-link:hover{background:#c9f36b16;transform:translateY(-2px)}
+.trust-note{margin-top:16px;padding:14px 16px;border-left:2px solid var(--gold);background:#eac45b09;color:#b9c4ae;font-size:10px;line-height:1.8}
+@media(max-width:700px){.premium-strip{grid-template-columns:1fr;gap:9px}.premium-chip{padding:13px 15px}}
 .review-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:18px;align-items:start}
 .review-form-card,.review-list-wrap{border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#151d12,#0c110a);padding:25px}
 .review-form-card h3,.review-list-head h3{font:700 21px "Space Grotesk";letter-spacing:-.7px;margin:0 0 20px}
@@ -79,7 +90,7 @@ header{position:sticky;top:0;z-index:50;background:#090d08d9;backdrop-filter:blu
 </head>
 <body>
 <div class="progress" id="progress"></div><div class="topline"></div>
-<div class="noticebar">🍌 Oficjalna strona BananaShop — pytania i pomoc znajdziesz na Discordzie <a href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">DOŁĄCZ ↗</a></div>
+<div class="noticebar">🍌 BANANSHOP • CENNIK CRAFTCUBE • PROMOCJE I KONTAKT <a href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">SPRAWDŹ DISCORD ↗</a></div>
 <header><div class="wrap nav">
 <a class="brand" href="#start" aria-label="BananShop — strona główna"><span class="brandmark">🍌</span><span class="brandname">BANAN<span>SHOP</span></span></a>
 <nav class="links" id="links"><a href="#start">START</a><a href="#sklep">SKLEP</a><a href="#cennik">CENNIK</a><a href="#opinie">OPINIE</a><a href="#rabaty">KODY RABATOWE</a><a href="#dlaczego">O NAS</a><a href="#serwer">SERWER</a><a href="#ekipa">EKIPA</a><a href="#faq">FAQ</a><a href="#discord">DISCORD</a></nav>
@@ -88,11 +99,12 @@ header{position:sticky;top:0;z-index:50;background:#090d08d9;backdrop-filter:blu
 <main>
 <section class="wrap hero" id="start">
 <div class="reveal"><div class="tag"><span class="dot"></span> BANANSHOP.PL · OFFICIAL STORE</div><h1>WIĘCEJ NIŻ<br>ZWYKŁY <em>SHOP.</em></h1>
-<p class="lead">Wbijaj do BananShop — miejsca z własnym klimatem, dopracowanym stylem i społecznością, która stale się rozwija. Poznaj projekt i bądź na bieżąco z nowościami.</p>
-<div class="actions"><a class="btn" href="#sklep">ODKRYJ SKLEP ↓</a><a class="btn ghost" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">DOŁĄCZ NA DISCORD ↗</a></div><div class="tiny">PREMIUM VIBE · CLEAN DESIGN · BANAN ENERGY</div><div class="statusline"><span class="dot"></span> OFICJALNA STRONA BANANSHOP <span>·</span> KONTAKT PRZEZ DISCORD</div></div>
+<p class="lead">Szukasz przejrzystej oferty i szybkiego kontaktu? Sprawdź cennik CraftCube, poznaj aktualne promocje i odezwij się bezpośrednio do ekipy BananaShop.</p>
+<div class="actions"><a class="btn" href="#cennik">ZOBACZ CENNIK ↓</a><a class="btn ghost" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">ZAPYTAJ NA DISCORD ↗</a></div><div class="tiny">PRZEJRZYSTE CENY · SZYBKI KONTAKT · BANAN ENERGY</div><div class="statusline"><span class="dot"></span> OFICJALNA STRONA BANANSHOP <span>·</span> KONTAKT PRZEZ DISCORD</div></div>
 <div class="visual reveal"><span class="float-orb one"></span><span class="float-orb two"></span><div class="halo"></div><div class="banana"><span>🍌</span></div><div class="orbitlabel"><b>BS / 001</b> &nbsp; FRESH QUALITY</div></div>
 </section>
 <div class="ticker"><div class="wrap tickerline"><span><b>✦</b> BANANSHOP</span><span>QUALITY FIRST</span><span><b>✦</b> COMMUNITY</span><span>FRESH STYLE</span><span><b>✦</b> BANANSHOP</span><span>EST. WITH ENERGY</span></div></div>
+<div class="wrap premium-strip reveal"><div class="premium-chip"><span class="chip-icon">✦</span><div><strong>Przejrzysty cennik</strong><small>Kwoty pokazane jasno, bez ukrytych dopłat na stronie</small></div></div><div class="premium-chip"><span class="chip-icon">⚡</span><div><strong>Szybki kontakt</strong><small>Zapytaj ekipę bezpośrednio na oficjalnym Discordzie</small></div></div><div class="premium-chip"><span class="chip-icon">🛡️</span><div><strong>Najpierw potwierdzenie</strong><small>Ustal dostępność i zasady przed każdą transakcją</small></div></div></div>
 <section class="wrap section" id="sklep"><div class="head reveal"><div><div class="eyebrow">01 / STREFA SKLEPU</div><h2>WYBIERZ SWÓJ<br>KLIMAT.</h2></div><p class="desc">To miejsce na aktualną ofertę BananShop. Karty produktów są przygotowane — ceny i szczegóły dodamy, gdy przekażesz konkretne dane. Żadnych fikcyjnych ofert.</p></div>
 <div class="products">
 <article class="product reveal"><div class="producttop"><div class="picon">🛍️</div><span class="status">WKRÓTCE</span></div><h3>Nasza oferta</h3><p>Produkty i usługi BananShop w jednym, przejrzystym katalogu.</p><span class="soon">KATALOG W PRZYGOTOWANIU ↗</span></article>
@@ -100,10 +112,10 @@ header{position:sticky;top:0;z-index:50;background:#090d08d9;backdrop-filter:blu
 <article class="product reveal"><div class="producttop"><div class="picon">🎫</div><span class="status">ONLINE</span></div><h3>Centrum pomocy</h3><p>Potrzebujesz wsparcia? Skontaktuj się z ekipą przez oficjalny Discord.</p><a class="soon" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">OTWÓRZ DISCORDA ↗</a></article>
 </div></section>
 
-<section class="wrap section" id="cennik"><div class="head reveal"><div><div class="eyebrow">01 / CENNIK SERWEROWY</div><h2>CRAFTCUBE<br>WALUTA.</h2></div><p class="desc">Przejrzysty przelicznik waluty serwerowej. Wybierz pakiet i sprawdź orientacyjną wartość.</p></div><div class="products"><article class="product reveal"><div class="producttop"><div class="picon">⛏️</div><span class="status">CRAFTCUBE</span></div><h3>100 000</h3><p>Waluta serwerowa CraftCube.</p><span class="soon">0,50 zł</span></article><article class="product reveal"><div class="producttop"><div class="picon">💰</div><span class="status">PRZELICZNIK</span></div><h3>1 000 000</h3><p>Dziesięć razy więcej waluty.</p><span class="soon">5,00 zł</span></article><article class="product reveal"><div class="producttop"><div class="picon">💎</div><span class="status">PRZELICZNIK</span></div><h3>10 000 000</h3><p>Sto razy więcej waluty.</p><span class="soon">50,00 zł</span></article></div><div class="featurebox reveal" style="margin-top:18px"><p><strong style="color:var(--lime)">Zamówienia i kontakt</strong><br>Aby zapytać o dostępność i szczegóły, skontaktuj się z obsługą na Discordzie. Cennik jest przelicznikiem orientacyjnym; sprawdź regulamin serwera i zasady handlu przed transakcją.</p><a class="btn" style="margin-top:18px" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">ZAPYTAJ NA DISCORDZIE ↗</a></div></section>
+<section class="wrap section" id="cennik"><div class="head reveal"><div><div class="eyebrow">01 / CENNIK SERWEROWY</div><h2>CRAFTCUBE<br>WALUTA.</h2></div><p class="desc">Szybko porównaj pakiety i wybierz kwotę, o którą chcesz zapytać obsługę. Ceny są orientacyjne — dostępność i zasady potwierdź przed transakcją.</p></div><div class="products"><article class="product reveal"><div class="producttop"><div class="picon">⛏️</div><span class="status">CRAFTCUBE</span></div><h3>100 000</h3><p>Waluta serwerowa CraftCube.</p><span class="price-value">0,50 zł</span><span class="price-note">Cena orientacyjna • pakiet 100k</span><a class="package-link" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">ZAPYTAJ O PAKIET ↗</a></article><article class="product reveal"><div class="producttop"><div class="picon">💰</div><span class="status">POPULARNY PRZELICZNIK</span></div><h3>1 000 000</h3><p>Dziesięć razy więcej waluty.</p><span class="price-value">5,00 zł</span><span class="price-note">Cena orientacyjna • pakiet 1m</span><a class="package-link" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">ZAPYTAJ O PAKIET ↗</a></article><article class="product reveal"><div class="producttop"><div class="picon">💎</div><span class="status">WIĘKSZY PAKIET</span></div><h3>10 000 000</h3><p>Sto razy więcej waluty.</p><span class="price-value">50,00 zł</span><span class="price-note">Cena orientacyjna • pakiet 10m</span><a class="package-link" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">ZAPYTAJ O PAKIET ↗</a></article></div><div class="trust-note">Ważne: ceny mają charakter orientacyjny. Przed zakupem potwierdź dostępność, sposób przekazania oraz zgodność takiej wymiany z regulaminem CraftCube. Nie wysyłaj nikomu haseł ani kodów logowania.</div><div class="featurebox reveal" style="margin-top:18px"><p><strong style="color:var(--lime)">Chcesz zapytać o pakiet?</strong><br>Wejdź na oficjalny Discord, opisz wybrany pakiet i poczekaj na potwierdzenie warunków przez obsługę. Nie wysyłaj płatności, dopóki nie znasz wszystkich szczegółów.</p><a class="btn" style="margin-top:18px" href="https://discord.gg/9T4tF55jd" target="_blank" rel="noopener noreferrer">ZAPYTAJ NA DISCORDZIE ↗</a></div></section>
 <section class="wrap section" id="opinie">
 <div class="head reveal"><div><div class="eyebrow">02 / GŁOS SPOŁECZNOŚCI</div><h2>PRAWDZIWE<br>OPINIE.</h2></div><p class="desc">Masz już doświadczenie z BananaShop? Dodaj własną opinię. Możesz ją później usunąć z tej przeglądarki.</p></div>
-<div class="review-layout">
+<p class="trust-note">Publikuj wyłącznie własne, uczciwe opinie. W tej wersji strony recenzje są widoczne tylko w przeglądarce, w której zostały dodane — nie są wspólną bazą ocen klientów.</p><div class="review-layout">
   <div class="review-form-card reveal">
     <div class="eyebrow">NAPISZ RECENZJĘ</div><h3>Jak oceniasz BananaShop?</h3>
     <form id="reviewForm">
