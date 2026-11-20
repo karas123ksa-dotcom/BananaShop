@@ -256,10 +256,12 @@ client.on(Events.GuildMemberAdd, async member => {
     .setColor(0xC9F36B)
     .setTitle("🍌 Witaj w BananShop!")
     .setDescription(
-      `Hej ${member}! Miło, że jesteś z nami.\n\n` +
-      "📜 Zapoznaj się z regulaminem.\n" +
-      "🛍️ Sprawdź naszą ofertę.\n" +
-      "🎫 Jeśli potrzebujesz pomocy, otwórz ticket."
+      `Hej ${member}! Witaj w najlepszym shopie w Polsce! 🍌\n\n` +
+      "Cieszymy się, że dołączasz do naszej społeczności.\n\n" +
+      "📜 Przeczytaj regulamin w odpowiednim kanale.\n" +
+      "🛍️ Sprawdź naszą ofertę i poznaj dostępne produkty.\n" +
+      "🎫 Potrzebujesz pomocy? Otwórz ticket — nasza ekipa pomoże Ci jak najszybciej.\n\n" +
+      `👥 Jesteś naszym członkiem nr ${member.guild.memberCount}!`
     )
     .setThumbnail(member.user.displayAvatarURL())
     .setFooter({ text: "BananShop.pl • Fresh energy" });
@@ -350,7 +352,7 @@ client.on(Events.InteractionCreate, async interaction => {
       const existing = interaction.guild.channels.cache.find(
         channel => channel.type === ChannelType.GuildText &&
           channel.parentId === category.id &&
-          channel.topic === `ticket-owner:${interaction.user.id}`
+          channel.topic?.startsWith(`ticket-owner:${interaction.user.id} `)
       );
       if (existing) return interaction.reply({ content: `Masz już otwarty ticket: ${existing}`, ephemeral: true });
 
