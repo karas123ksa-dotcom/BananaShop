@@ -13,7 +13,7 @@ for (const key of ["DISCORD_TOKEN", "OPENAI_API_KEY"]) {
 }
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const model = process.env.OPENAI_MODEL || "gpt-4.1-mini";
 const history = new Map();
 const cooldowns = new Map();
