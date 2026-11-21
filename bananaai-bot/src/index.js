@@ -123,7 +123,9 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
     const role = interaction.options.getRole("ranga", true);
-    const member = interaction.options.getMember("uzytkownik");
+    const targetUser = interaction.options.getUser("uzytkownik", true);
+    let member;
+    try { member = await interaction.guild.members.fetch(targetUser.id); } catch { member = null; }
     if (!member) {
       return interaction.reply({ content: "Nie udało się znaleźć użytkownika na tym serwerze.", flags: MessageFlags.Ephemeral });
     }
