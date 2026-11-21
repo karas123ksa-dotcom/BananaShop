@@ -17,7 +17,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const model = process.env.OPENAI_MODEL || "gpt-4.1-mini";
 const history = new Map();
 const cooldowns = new Map();
-const SITE_URL = (process.env.BANANASHOP_URL || "").trim();
+const SITE_URL = (process.env.BANANASHOP_URL || "https://bananashop-b8bl.netlify.app").trim();
 const INVITE_URL = process.env.DISCORD_INVITE || "https://discord.gg/9T4tF55jd";
 const SYSTEM = "Jesteś BananaAI, pomocnym polskojęzycznym asystentem serwera Discord BananaShop. Odpowiadaj krótko, przyjaźnie i jasno. Pomagaj w pytaniach o Minecraft, BananaShop i problemy techniczne. Nie wymyślaj cen, dostępności, statusu zamówień ani funkcji sklepu. W razie wątpliwości odeślij do obsługi. Nigdy nie proś o hasła, tokeny botów ani klucze API. Nie twierdź, że wykonałeś działania moderacyjne.";
 
