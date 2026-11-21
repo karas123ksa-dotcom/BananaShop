@@ -1,0 +1,29 @@
+name: Register BananaAI slash commands
+
+on:
+  workflow_dispatch:
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: bananaai-bot
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Register Discord slash commands
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
+        run: |
+          test -n "$DISCORD_TOKEN" || (echo "Missing GitHub secret DISCORD_TOKEN" && exit 1)
+          test -n "$DISCORD_CLIENT_ID" || (echo "Missing GitHub secret DISCORD_CLIENT_ID" && exit 1)
+          npm run register
