@@ -2,29 +2,44 @@
 
 ## BananaPvP Lite — Minecraft Java 1.21.11
 
-Paczka jest lekka i używa formatu zasobów 75 dla Java 1.21.11. Sama paczka tekstur nie jest modem FPS i nie gwarantuje wzrostu liczby klatek.
+Lekka paczka zasobów 16x. Sama paczka tekstur nie jest modem FPS i nie gwarantuje wzrostu liczby klatek.
 
-## Profil FPS dla słabego komputera (4 GB RAM)
+## Profil PvP / BedWars dla komputera z 4 GB RAM
 
-Ustaw w Minecraft → Opcje → Ustawienia grafiki:
+### Ustawienia gry
 
 - Render Distance: 5–6 chunks
 - Simulation Distance: 4 chunks
 - Graphics: Fast
-- Smooth Lighting: Off / Minimum
+- Smooth Lighting: Off
 - Clouds: Off
 - Particles: Minimal
 - Entity Shadows: Off
 - Mipmap Levels: 0–1
-- VSync: Off, jeśli obraz nie rwie
-- Max Framerate: limit blisko odświeżania monitora; jeśli są przycięcia, spróbuj 60 FPS zamiast Unlimited
+- VSync: Off (włącz ponownie, jeśli obraz rwie)
+- Max Framerate: zacznij od 75 FPS; jeśli występują skoki, ustaw 60 FPS
+- Shaders: Off
+- Resource pack: 16x; unikaj kilku dużych paczek naraz
 
-Zamknij przeglądarkę i zbędne programy przed grą. Nie przydzielaj Minecraftowi całych 4 GB pamięci — Windows też jej potrzebuje. Zacznij od 2 GB RAM dla gry; jeśli masz Fabric i kilka lekkich modów, przetestuj 2.5 GB. Zmieniaj jedną opcję naraz i porównuj FPS klawiszem F3.
+### RAM
 
-### Fabric
+Przy 4 GB pamięci całego komputera ustaw Minecraftowi **2 GB**. Nie przydzielaj grze całych 4 GB — system Windows również potrzebuje pamięci. Oficjalna pomoc Minecraft zaleca obniżenie przydziału do 2 GB na komputerach z 4 GB RAM lub mniej.
 
-Sodium może poprawić renderowanie, a Lithium i FerriteCore mogą ograniczyć obciążenie gry/pamięci. Pobieraj wyłącznie wersje zgodne dokładnie z Minecraft 1.21.11 i Fabric. Nie łącz Sodium z OptiFine.
+### Fabric 1.21.11 — mody optymalizacyjne
 
-### Ważne
+Instaluj wersje przeznaczone dokładnie dla Minecraft 1.21.11 i Fabric:
 
-Texture pack 16x może być lżejszy od paczek wysokiej rozdzielczości, ale nie zastąpi optymalizacji ustawień ani modów. Nie obiecujemy konkretnego wzrostu FPS — zależy on od procesora, grafiki i pamięci komputera.
+- Sodium — optymalizuje renderowanie i może poprawić FPS oraz ograniczyć mikroprzycięcia: https://modrinth.com/mod/sodium
+- Lithium — optymalizuje logikę gry: https://modrinth.com/mod/lithium
+- FerriteCore — ogranicza zużycie pamięci: https://modrinth.com/mod/ferrite-core
+
+Dodawaj je pojedynczo i uruchamiaj grę po każdej zmianie. Nie łącz Sodium z OptiFine. Jeśli pojawi się crash, usuń ostatnio dodany mod i sprawdź zgodność wersji.
+
+### Dodatkowe wskazówki
+
+- Zamknij przeglądarkę i niepotrzebne aplikacje przed uruchomieniem gry.
+- Nie używaj shaderów na tym komputerze.
+- Sprawdź wynik w tym samym miejscu i na tym samym serwerze, patrząc na FPS przez F3.
+- Zmieniaj jedną opcję naraz, żeby wiedzieć, co faktycznie pomaga.
+
+**Uwaga:** ustawienia i mody mogą poprawić płynność, ale nie gwarantują konkretnej liczby FPS. Wynik zależy też od procesora, karty graficznej, sterowników i obciążenia serwera.
